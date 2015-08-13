@@ -1,0 +1,10 @@
+INSERT INTO visas (idClient, dateOfIssue) VALUES (1, '2015-03-03');
+INSERT INTO visas (idClient, dateOfIssue) VALUES (2, '2015-08-01');
+INSERT INTO visas (idClient, dateOfIssue) VALUES (3, '2014-12-17');
+INSERT INTO visas (idClient, dateOfIssue) VALUES (4, '2015-02-23');
+INSERT INTO visas (idClient, dateOfIssue) VALUES (5, '2015-06-14');
+INSERT INTO visas (idClient, dateOfIssue) VALUES (6, '2014-06-28');
+INSERT INTO visas (idClient, dateOfIssue) VALUES (7, '2014-07-28');
+INSERT INTO visas (idClient, dateOfIssue) VALUES (8, '2015-07-05');
+INSERT INTO visas (idClient, dateOfIssue) VALUES (9, '2015-03-28');
+INSERT INTO visas (idClient, dateOfIssue) VALUES (10, '2014-04-03');
