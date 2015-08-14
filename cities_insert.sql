@@ -1,10 +1,11 @@
-INSERT INTO cities (cityName, country) VALUES ('Lviv', 'Ukraine');
-INSERT INTO cities (cityName, country) VALUES ('Kyiv', 'Ukraine');
-INSERT INTO cities (cityName, country) VALUES ('Truskavets', 'Ukraine');
-INSERT INTO cities (cityName, country) VALUES ('Paris', 'France');
-INSERT INTO cities (cityName, country) VALUES ('Monte Carlo', 'Monaco');
-INSERT INTO cities (cityName, country) VALUES ('Hurghada', 'Egypt');
-INSERT INTO cities (cityName, country) VALUES ('Antalia', 'Turkey');
-INSERT INTO cities (cityName, country) VALUES ('Barcelona', 'Spain');
-INSERT INTO cities (cityName, country) VALUES ('Tokyo', 'Japan');
-INSERT INTO cities (cityName, country) VALUES ('New York', 'USA');
+INSERT INTO cities (cityName, country) VALUES 
+('Lviv', 'Ukraine'),
+('Kyiv', 'Ukraine'),
+('Truskavets', 'Ukraine'),
+('Paris', 'France'),
+('Monte Carlo', 'Monaco'),
+('Hurghada', 'Egypt'),
+('Antalia', 'Turkey'),
+('Barcelona', 'Spain'),
+('Tokyo', 'Japan'),
+('New York', 'USA');
