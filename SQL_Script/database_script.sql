@@ -11,12 +11,12 @@ create table if not exists cities(
 
 create table if not exists clientInfo(
 	idClient int primary key auto_increment,
-    fName varchar(25),
-    sName varchar(25),
-    pasportNumber varchar(25),
-    adress varchar(45),
+    fName varchar(35),
+    sName varchar(35),
+    pasportNumber varchar(35),
+    adress varchar(65),
     tel varchar(20),
-    email varchar(30)
+    email varchar(35)
 );
 
 create table if not exists visas(
