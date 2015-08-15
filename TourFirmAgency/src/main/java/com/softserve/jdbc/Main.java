@@ -15,8 +15,7 @@ public class Main {
 		// TODO Auto-generated method stub
 		DataBaseController controller = new DataBaseController();
 		controller.GetConnection();
-		controller.createNewClient();
-		controller.createNewClient();
+		controller.updateVisaInfo();	
 		controller.CloseConnection();
 	}
 
