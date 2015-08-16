@@ -50,6 +50,13 @@ public class DataBaseController {
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+	 * Select all clients.
+	 */
+	public void selectAllClients() {
+		
+	}
 
 	/**
 	 * Find client.
