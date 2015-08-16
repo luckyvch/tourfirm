@@ -15,7 +15,7 @@ public class Main {
 		// TODO Auto-generated method stub
 		DataBaseController controller = new DataBaseController();
 		controller.GetConnection();
-		controller.findVisasInThePeriodOfTime();	
+		controller.findVisa();	
 		controller.CloseConnection();
 	}
 
