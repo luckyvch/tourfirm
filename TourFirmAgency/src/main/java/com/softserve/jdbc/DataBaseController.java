@@ -1,7 +1,6 @@
 package com.softserve.jdbc;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,7 +10,9 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.softserve.domain.ClientInfo;
+import com.softserve.domain.Visas;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class DataBaseController.
  */
@@ -52,20 +53,23 @@ public class DataBaseController {
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
 	 * Select all clients.
-	 * @throws SQLException 
+	 *
+	 * @throws SQLException
+	 *             the SQL exception
 	 */
 	public void selectAllClients() throws SQLException {
 		ps = conn.prepareStatement("");
 		List<ClientInfo> list = new ArrayList<ClientInfo>();
 		ResultSet rs = ps.executeQuery("select * from tourfirm.clientinfo");
 		while (rs.next()) {
-			list.add(new ClientInfo(rs.getInt(1), rs.getString(2), rs.getString(3), 
-					rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7)));
+			list.add(new ClientInfo(rs.getInt(1), rs.getString(2), rs
+					.getString(3), rs.getString(4), rs.getString(5), rs
+					.getString(6), rs.getString(7)));
 		}
-		
+
 		for (ClientInfo clientInfo : list) {
 			System.out.println(clientInfo.toString());
 		}
@@ -132,8 +136,9 @@ public class DataBaseController {
 
 	/**
 	 * Update client info.
-	 * 
+	 *
 	 * @throws SQLException
+	 *             the SQL exception
 	 */
 	public void updateClientInfo() throws SQLException {
 		System.out.println("Vvedit seriju ta nomer pasporta: ");
@@ -218,8 +223,9 @@ public class DataBaseController {
 
 	/**
 	 * Delete client.
-	 * 
+	 *
 	 * @throws SQLException
+	 *             the SQL exception
 	 */
 	public void deleteClient() throws SQLException {
 		ClientInfo clientInfo = findClient();
@@ -244,9 +250,7 @@ public class DataBaseController {
 			System.out.println("Object ne vudaleno!");
 		}
 			break;
-
 		}
-
 	}
 
 	/**
@@ -269,8 +273,9 @@ public class DataBaseController {
 
 	/**
 	 * Delete visa.
-	 * 
+	 *
 	 * @throws SQLException
+	 *             the SQL exception
 	 */
 	public void deleteVisa() throws SQLException {
 		ClientInfo clientInfo = findClient();
@@ -281,6 +286,12 @@ public class DataBaseController {
 		System.out.println("Visa vudalena!");
 	}
 
+	/**
+	 * Update visa info.
+	 *
+	 * @throws SQLException
+	 *             the SQL exception
+	 */
 	public void updateVisaInfo() throws SQLException {
 		ClientInfo clientInfo = findClient();
 		System.out.println("Vuberit informaziju jaku vy hochete onovutu: "
@@ -294,21 +305,23 @@ public class DataBaseController {
 					+ " potribno znajty clienta jakomu "
 					+ " vidpovidatume vubrana visa");
 			ClientInfo clientInfo2 = findClient();
-			ps = conn.prepareStatement("update visas set idClient = ? WHERE idClient = ?");
+			ps = conn
+					.prepareStatement("update visas set idClient = ? WHERE idClient = ?");
 			ps.setInt(1, clientInfo2.getIdClient());
 			ps.setInt(2, clientInfo.getIdClient());
 			ps.execute();
 			ps.close();
 		}
 			break;
-			
+
 		case 2: {
 			System.out.println("Dla zminu id clienta "
 					+ " potribno znajty clienta jakomu "
 					+ " vidpovidatume vubrana visa");
 			System.out.println("Vvedit pravulnu datu: ");
 			String date = scanner.next();
-			ps = conn.prepareStatement("update visas set dateOfIssue = ? WHERE idClient = ?");
+			ps = conn
+					.prepareStatement("update visas set dateOfIssue = ? WHERE idClient = ?");
 			ps.setString(1, date);
 			ps.setInt(2, clientInfo.getIdClient());
 			ps.execute();
@@ -316,6 +329,64 @@ public class DataBaseController {
 		}
 			break;
 		}
+	}
+
+	/**
+	 * Select all visas.
+	 *
+	 * @throws SQLException
+	 *             the SQL exception
+	 */
+	public void selectAllVisas() throws SQLException {
+		ps = conn.prepareStatement("");
+		List<Visas> list = new ArrayList<Visas>();
+		ResultSet rs = ps.executeQuery("select * from tourfirm.visas");
+		while (rs.next()) {
+			list.add(new Visas(rs.getInt(1), rs.getInt(2), rs.getString(3)));
+		}
+
+		for (Visas visas : list) {
+			System.out.println(visas.toString());
+		}
+	}
+
+	/**
+	 * Find visa.
+	 * 
+	 * @throws SQLException
+	 */
+	public void findVisa() throws SQLException {
+		ClientInfo clientInfo = findClient();
+		ps = conn.prepareStatement("");
+		ResultSet rs = ps.executeQuery("select * from visas where idClient = "
+				+ clientInfo.getIdClient());
+		Visas visas = new Visas();
+		while (rs.next()) {
+			visas.setIdVisa(rs.getInt(1));
+			visas.setIdClient(rs.getInt(2));
+			visas.setDate(rs.getString(3));
+		}
+		System.out.println(visas.toString());
+	}
+
+	public void findVisasInThePeriodOfTime() throws SQLException {
+		ps = conn.prepareStatement("");
+		System.out.println("¬вед≥ть дату початку пер≥оду: ");
+		String dateFrom = scanner.next();
+		System.out.println("¬вед≥ть дату к≥нц€ пер≥оду: ");
+		String dateTo = scanner.next();
+		List<Visas> list = new ArrayList<Visas>();
+		ResultSet rs = ps
+				.executeQuery("select * from visas where dateOfIssue >= '"
+						+ dateFrom + "' and dateOfIssue <= '" + dateTo + "' order by dateOfIssue desc");
+		while (rs.next()) {
+			list.add(new Visas(rs.getInt(1), rs.getInt(2), rs.getString(3)));
+		}
+
+		for (Visas visas : list) {
+			System.out.println(visas.toString());
+		}
+
 	}
 
 	/**
