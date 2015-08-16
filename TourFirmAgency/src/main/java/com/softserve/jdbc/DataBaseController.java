@@ -369,6 +369,11 @@ public class DataBaseController {
 		System.out.println(visas.toString());
 	}
 
+	/**
+	 * Find visas in the period of time.
+	 *
+	 * @throws SQLException the SQL exception
+	 */
 	public void findVisasInThePeriodOfTime() throws SQLException {
 		ps = conn.prepareStatement("");
 		System.out.println("¬вед≥ть дату початку пер≥оду: ");
