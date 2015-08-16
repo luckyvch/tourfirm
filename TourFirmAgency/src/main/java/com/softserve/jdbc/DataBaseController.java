@@ -6,6 +6,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import com.softserve.domain.ClientInfo;
@@ -45,7 +47,7 @@ public class DataBaseController {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(URL, USER, PASS);
-			System.out.println("Pidjednanna vukonano");
+			System.out.println("Connection opened");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -53,9 +55,20 @@ public class DataBaseController {
 	
 	/**
 	 * Select all clients.
+	 * @throws SQLException 
 	 */
-	public void selectAllClients() {
+	public void selectAllClients() throws SQLException {
+		ps = conn.prepareStatement("");
+		List<ClientInfo> list = new ArrayList<ClientInfo>();
+		ResultSet rs = ps.executeQuery("select * from tourfirm.clientinfo");
+		while (rs.next()) {
+			list.add(new ClientInfo(rs.getInt(1), rs.getString(2), rs.getString(3), 
+					rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7)));
+		}
 		
+		for (ClientInfo clientInfo : list) {
+			System.out.println(clientInfo.toString());
+		}
 	}
 
 	/**
@@ -313,7 +326,7 @@ public class DataBaseController {
 	 */
 	public void CloseConnection() throws SQLException {
 		conn.close();
-		System.out.println("Pidjednanna zakryto");
+		System.out.println("Connection closed");
 	}
 
 }
