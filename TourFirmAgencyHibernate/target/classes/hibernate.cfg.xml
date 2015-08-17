@@ -13,6 +13,8 @@
 		
 		<mapping resource="hbm/ClientInfo.hbm.xml"/>
 		<mapping resource="hbm/Visas.hbm.xml"/>
+		<mapping resource="hbm/Hotels.hbm.xml"/>
+		<mapping resource="hbm/Booking.hbm.xml"/>
 		
 	</session-factory>
 </hibernate-configuration>
