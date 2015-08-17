@@ -3,8 +3,10 @@ package com.softserve.jdbc;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
+import java.sql.Statement;
 
 /**
  * The Class DataBaseController.
@@ -48,19 +50,19 @@ public class DataBaseController {
 	}
 
 	public void createNewClient() throws SQLException {
-		System.out.println("¬вед≥ть ≥м'€: ");
+		System.out.println("First name: ");
 		String fName = scanner.next();
-		System.out.println("¬вед≥ть пр≥звище: ");
+		System.out.println("Second name: ");
 		String sName = scanner.next();
-		System.out.println("¬вед≥ть сер≥ю та номер паспорта: ");
+		System.out.println("Passport info: ");
 		String pasportInfo = scanner.next();
-		System.out.println("¬вед≥ть адресу: ");
+		System.out.println("Address: ");
 		String adress = scanner.next();
-		System.out.println("¬вед≥ть телефон: ");
+		System.out.println("Tel. number: ");
 		String tel = scanner.next();
-		System.out.println("¬вед≥ть email: ");
+		System.out.println("Email: ");
 		String email = scanner.next();
-		ps = conn.prepareStatement("insert into clientinfo"
+		ps = conn.prepareStatement("insert into clientInfo"
 				+ "(fName, sName, pasportNumber, adress, tel, email)"
 				+ " values (?, ?, ?, ?, ?, ?)");
 		ps.setString(1, fName);
@@ -72,6 +74,74 @@ public class DataBaseController {
 		ps.execute();
 		ps.close();
 	}
+	
+	
+	/**
+	 * Shows ids, names, countries of the available cities
+	 * @throws SQLException
+	 */
+	public void showAllCities() throws SQLException {
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery("select * from cities");
+		System.out.println("All cities records that currently in database:");
+		System.out.println("ID	Name			Country");
+		while (rs.next()){
+			System.out.println(rs.getString(1)+"	"+rs.getString(2)+"			"+rs.getString(3));
+		}
+		
+	}
+	
+	/**
+	 * Gets idCity by name
+	 * @return city id, or 0 when not found
+	 * @throws SQLException
+	 */	
+	public int getCityIdByName(String name) throws SQLException {
+		ps = conn.prepareStatement("select idCity from cities where cityName like ?");
+		ps.setString(1, name);
+		ResultSet rs = ps.executeQuery();
+		if (!rs.next()){
+			return 0;
+		}
+		return rs.getInt(1);		
+	}
+	
+	/**
+	 * Gets city name by city id
+	 * @return city name, or null when not found
+	 * @throws SQLException
+	 */	
+	public String getCityNameById(int cityId) throws SQLException {
+		ps = conn.prepareStatement("select cityName from cities where idCity=?");
+		ps.setInt(1, cityId);
+		ResultSet rs = ps.executeQuery();
+		if (!rs.next()){
+			return null;
+		}
+		return rs.getString(1);		
+	}
+	
+	
+	/**
+	 * Insert city info into DB from user input
+	 * @throws SQLException
+	 */	
+	public void createNewCity() throws SQLException {
+		System.out.println("City name: ");
+		String cityName = scanner.nextLine();
+		System.out.println("Country: ");
+		String country = scanner.nextLine();
+		if (cityName == null || country == null) {
+			System.out.println("Not all required data entered! Skipping DB insert...");
+		} else {
+			ps = conn.prepareStatement("insert into cities (cityName, country) values (?, ?)");
+			ps.setString(1, cityName);
+			ps.setString(2, country);
+			ps.execute();
+			ps.close();
+		}
+	}
+	
 
 	/**
 	 * Close connection.
