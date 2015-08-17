@@ -116,5 +116,4 @@ public class Hotels {
 				+ "\nTelephone number: " + tel;
 	}
 
-
 }
