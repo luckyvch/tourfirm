@@ -16,27 +16,31 @@ public class Main {
 		DataBaseController controller = new DataBaseController();
 		controller.GetConnection();
 
+
 		controller.findVisa();	
 
 		System.out.println();
+
+//		System.out.println();
+
 //		controller.createNewClient();
 //		controller.createNewClient();
-		controller.showAllCities();
+//		controller.showAllCities();
 		
 		try {
-		String cityTosearch = "Paris";
+//		String cityTosearch = "Paris";
+//		System.out.println();
+//		System.out.println("idCity of "+cityTosearch+" is "+controller.getCityIdByName(cityTosearch));
+//		int idCityToSearch = 9;
+//		System.out.println("Name of city with id "+idCityToSearch+" is "+controller.getCityNameById(idCityToSearch));
+//		System.out.println();
 		
-		System.out.println();
-		System.out.println("idCity of "+cityTosearch+" is "+controller.getCityIdByName(cityTosearch));
-		
-		int idCityToSearch = 9;
-		System.out.println("Name of city with id "+idCityToSearch+" is "+controller.getCityNameById(idCityToSearch));
-		System.out.println();
-		
-		controller.createNewCity();
-		controller.showAllCities();
+//		controller.createNewCity();
+//		controller.showAllCities();
+		controller.createNewRoom();
+//		controller.updateRoomInfo();
 		} catch (SQLException e) {
-			System.out.println("Error with dababase");
+			System.out.println("Error with dababase "+e);
 		}
 		
 

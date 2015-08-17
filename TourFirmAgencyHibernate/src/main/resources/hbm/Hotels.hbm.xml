@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="com.softserve.domain.Hotels" table="hotels">
+	<id name="idHotel" column="idHotel" type="java.lang.Integer">
+		<generator class="increment"/>
+	</id>
+	<property name="idCity" column="idCity" type="java.lang.Integer"/>
+	<property name="hotelName" column="hotelName" type="java.lang.String"/>
+	<property name="category" column="category" type="java.lang.Integer"/>
+	<property name="location" column="location" type="java.lang.String"/>
+	<property name="emailHotel" column="emailHotel" type="java.lang.String"/>
+	<property name="telHotel" column="telHotel" type="java.lang.String"/>
+</class>
+</hibernate-mapping>
