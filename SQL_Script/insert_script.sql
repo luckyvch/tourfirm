@@ -1,6 +1,6 @@
 use tourfirm;
 
-INSERT INTO clientinfo (fName, sName, pasportNumber, adress, tel, email) VALUES 
+INSERT INTO clientInfo (fName, sName, pasportNumber, adress, tel, email) VALUES 
 ('Тетяна', 'Боженко', 'ВВ027523', 'м.Трускавець,вул.О.Магдалини,35/9', '0678563491', 'tanja74@gmail.com'),
 ('Сергій', 'Бойко', 'ВВ026924', 'м.Київ,вул.О.Магдалини,58/10','0978465312', 'sergio@gmail.com'),
 ('Олег', 'Василишин', 'ВС036223', 'м.Київ,вул.Т.Шевченка,96/10','0978465312','oleg@ukr.net'),
