@@ -23,6 +23,7 @@ public class Hotels {
 	/** The telephone of the hotel. */
 	private String tel;
 
+	
 	/**
 	 * Instantiates a new hotels.
 	 */
