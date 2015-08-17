@@ -131,7 +131,7 @@ public class DataBaseController {
 		String cityName = scanner.nextLine();
 		System.out.println("Country: ");
 		String country = scanner.nextLine();
-		if (cityName == null || country == null) {
+		if (cityName.length() == 0 || country.length() == 0) {
 			System.out.println("Not all required data entered! Skipping DB insert...");
 		} else {
 			ps = conn.prepareStatement("insert into cities (cityName, country) values (?, ?)");
@@ -140,6 +140,111 @@ public class DataBaseController {
 			ps.execute();
 			ps.close();
 		}
+	}
+	
+	/**
+	 * Insert room for selected hotel into DB from user input
+	 * @throws SQLException
+	 */	
+	public void createNewRoom() throws SQLException {
+		showAllHotels();
+		System.out.println("Enter id of the hotel:");
+		int idHotel = scanner.nextInt();
+		ps=conn.prepareStatement("select hotelName from hotels where idHotel=?");
+		ps.setInt(1, idHotel);
+		ResultSet rs2 = ps.executeQuery();
+		rs2.next();
+		String selectedHotel = rs2.getString(1);
+		System.out.println("You have selected "+selectedHotel);
+		System.out.println("Enter room number:");
+		int roomNumber = scanner.nextInt();
+		System.out.println("Enter room capacity (number of beds):");
+		int beds = scanner.nextInt();
+		System.out.println("Enter room price per night (US dollars)");
+		int price = scanner.nextInt();
+
+			ps = conn.prepareStatement("insert into rooms (idHotel, roomNumber, beds, price) VALUES (?, ?, ?, ?)");
+			ps.setInt(1, idHotel);
+			ps.setInt(2, roomNumber);
+			ps.setInt(3, beds);
+			ps.setInt(4, price);
+			ps.execute();
+			ps.close();
+
+	}
+	
+	/**
+	 * Shows all hotels in DB
+	 * @throws SQLException
+	 */
+	public void showAllHotels() throws SQLException{
+		System.out.println();
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery("select idHotel, hotelName from hotels");
+		while (rs.next()){
+			System.out.println(rs.getInt(1)+" "+rs.getString(2));
+		}
+	}
+	
+	
+	/**
+	 * Shows all rooms in particular hotel
+	 * @param idHotel - id of hotel with desired rooms
+	 * @throws SQLException
+	 */
+	public void showAllRoomsInHotel (int idHotel) throws SQLException {
+		ps=conn.prepareStatement("select roomNumber, beds, price from rooms where idHotel=?");
+		ps.setInt(1, idHotel);
+		System.out.println();
+		ResultSet rs = ps.executeQuery();
+		System.out.println("roomNumber     beds     price");
+		System.out.println("-----------------------------");
+		while (rs.next()){
+			System.out.println(rs.getString(1)+"   "+rs.getString(2)+"   "+rs.getString(3));
+		}
+		
+	}
+	
+	/**
+	 * Updates room info
+	 * @throws SQLException
+	 */
+	public void updateRoomInfo() throws SQLException {
+		System.out.println("Available hotels:");
+		showAllHotels();
+		System.out.println("Select hotel:");
+		int idHotel = scanner.nextInt();
+		ps=conn.prepareStatement("select hotelName from hotels where idHotel=?");
+		ps.setInt(1, idHotel);
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		String selectedHotel = rs.getString(1);
+		System.out.println("You have selected "+selectedHotel);
+		System.out.println("Rooms in this hotel:");
+		showAllRoomsInHotel(idHotel);
+		System.out.println();
+		
+		System.out.println("Select room:");
+		int roomNumber = scanner.nextInt();
+		
+		ps=conn.prepareStatement("select beds, price from rooms where roomNumber=? and idHotel=?");
+		ps.setInt(1, roomNumber);
+		ps.setInt(2, idHotel);
+		rs = ps.executeQuery();
+		rs.next();
+		int currentBeds = rs.getInt(1);
+		int currentPrice = rs.getInt(2);
+		
+		System.out.println("New beds number:(current "+currentBeds+")");
+		int newBeds = scanner.nextInt();
+		System.out.println("New price: (current "+currentPrice+")");
+		int newPrice = scanner.nextInt();
+		
+		ps = conn.prepareStatement("update rooms set beds=?, price=? where roomNumber=?");
+		ps.setInt(1, newBeds);
+		ps.setInt(2, newPrice);
+		ps.setInt(3, roomNumber);
+		ps.execute();
 	}
 	
 
