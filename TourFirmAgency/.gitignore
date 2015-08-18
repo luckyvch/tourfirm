@@ -1,7 +1,5 @@
 /target/
-<<<<<<< HEAD
-=======
 .classpath
 .project
 .checkstyle
->>>>>>> luckyvch
+/bin/
