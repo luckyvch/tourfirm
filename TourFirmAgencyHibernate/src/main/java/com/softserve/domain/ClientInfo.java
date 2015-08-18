@@ -1,5 +1,7 @@
 package com.softserve.domain;
 
+import java.util.List;
+
 
 public class ClientInfo {
 
@@ -23,6 +25,8 @@ public class ClientInfo {
 
 	/** The email. */
 	private String email;
+	
+	private List<Visa> visas;
 	
 
 	/**
@@ -199,6 +203,19 @@ public class ClientInfo {
 	 *
 	 * @return the list
 	 */
+	
+	public List<Visa> getVisas() {
+		return visas;
+	}
+
+	/**
+	 * Sets the visas.
+	 *
+	 * @param visas the new visas
+	 */
+	public void setVisas(List<Visa> visas) {
+		this.visas = visas;
+	}
 	
 
 	@Override

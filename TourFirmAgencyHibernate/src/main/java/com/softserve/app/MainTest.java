@@ -8,5 +8,6 @@ public class MainTest {
 
 	public static void main (String [] args){
 		Session session = Util.currentSession();
+		Util.closeSession();
 	}
 }

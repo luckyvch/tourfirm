@@ -13,5 +13,11 @@
 	<property name="adress" column="adress" type="java.lang.String"/>
 	<property name="tel" column="tel" type="java.lang.String"/>
 	<property name="email" column="email" type="java.lang.String"/>
+	
+	<list name="visa" lazy="false">
+	    <key column="idVisa"></key>
+	    <one-to-many class=""/>
+	    <index column=""/>	    
+	</list>
 </class>
 </hibernate-mapping>
