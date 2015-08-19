@@ -25,7 +25,7 @@ public class MainTest {
 		client.setAdress("м.Трускавець,вул.М.Стрийська,2/33");
 		client.setEmail("vch@mail.ru");
 		client.setTel("0965551958");
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-mm-dd");
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		String dateString = "2015-08-18";
 		Date date = formatter.parse(dateString);
 		Visa visa = new Visa("255699874", client, date);
