@@ -30,7 +30,6 @@ public class City {
 	private String country;
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "city")
-
 	private List<Hotel> hotelList;
 
 	/**
