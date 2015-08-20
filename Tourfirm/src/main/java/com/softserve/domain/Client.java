@@ -1,6 +1,7 @@
 package com.softserve.domain;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -51,7 +52,10 @@ public class Client {
 	private String email;
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "client")
-	private List<Visa> visas;
+	private Set<Visa> visas;
+	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "client")
+	private Set<Booking> bookings;
 	
 
 	/**
@@ -164,13 +168,22 @@ public class Client {
 	}
 
 
-	public List<Visa> getVisas() {
+	public Set<Visa> getVisas() {
 		return visas;
 	}
 
 
-	public void setVisas(List<Visa> visas) {
+	public void setVisas(Set<Visa> visas) {
 		this.visas = visas;
+	}
+	
+	public Set<Booking> getBookings() {
+		return bookings;
+	}
+
+
+	public void setBookings(Set<Booking> bookings) {
+		this.bookings = bookings;
 	}
 
 
@@ -192,6 +205,8 @@ public class Client {
 			       append(adress).
 			       append(tel).
 			       append(email).
+			       append(visas).
+			       append(bookings).
 			       toHashCode();
 	}
 
@@ -215,6 +230,8 @@ public class Client {
 				    append(adress, client.adress).
 				    append(tel, client.tel).
 				    append(email, client.email).
+				    append(visas, client.visas).
+				    append(email, client.bookings).
 				    isEquals();
 	}
 	

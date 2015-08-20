@@ -1,5 +1,7 @@
 package com.softserve.domain;
 
+import java.util.Set;
+
 import javax.persistence.*;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
@@ -25,6 +27,9 @@ public class Room {
 
 	@Column
 	private int roomPrice;
+	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "room")
+	private Set<Booking> booking;
 
 	public Room(int idRoom, Hotel hotel, int roomNumber, int roomType,
 			int roomPrice) {
