@@ -21,7 +21,7 @@ public class Hotel {
 	/** The id of the city. */
 	@ManyToOne
 	@JoinColumn(name = "idCity")
-	private int idCity;
+	private City city;
 
 	/** The name of the hotel. */
 	@Column
@@ -61,10 +61,10 @@ public class Hotel {
 	 *  @Param email is the email of the hotel;
 	 *  @Param tel is the telephone number of the hotel;
 	 */
-	public Hotel(int idHotels, int idCity, String hotelName, int category,
+	public Hotel(int idHotels, City city, String hotelName, int category,
 			String location, String emailHotel, String telHotel) {
-		this.idHotel = idHotel;
-		this.idCity = idCity;
+		setIdHotel(idHotel);
+		this.city = city;
 		this.hotelName = hotelName;
 		this.category = category;
 		this.location = location;
@@ -76,16 +76,16 @@ public class Hotel {
 		return idHotel;
 	}
 
-	public void setIdHotel(int idHotel) {
+	private void setIdHotel(int idHotel) {
 		this.idHotel = idHotel;
 	}
 
-	public int getIdCity() {
-		return idCity;
+	public City getIdCity() {
+		return city;
 	}
 
-	public void setIdCity(int idCity) {
-		this.idCity = idCity;
+	public void setIdCity(City city) {
+		this.city = city;
 	}
 
 	public String getHotelName() {
@@ -131,7 +131,7 @@ public class Hotel {
 	@Override
 	public String toString() {
 		return  hotelName + "-hotel id is " + idHotel + " and the city id is "
-				+ idCity + ", it is " + category + "-stars hotel. \nContacts: "
+				+ city + ", it is " + category + "-stars hotel. \nContacts: "
 				+ "\nLocation: " + location + "\nemail: " + emailHotel
 				+ "\nTelephone number: " + telHotel;
 	}
