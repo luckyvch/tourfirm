@@ -86,9 +86,6 @@ public class City {
 		this.country = country;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString() {
 		return "City [idCity=" + idCity + ", name=" + name + ", country="

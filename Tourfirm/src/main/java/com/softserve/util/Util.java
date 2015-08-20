@@ -8,6 +8,7 @@ import org.hibernate.cfg.Configuration;
 import com.softserve.domain.City;
 import com.softserve.domain.Client;
 import com.softserve.domain.Hotel;
+import com.softserve.domain.Room;
 import com.softserve.domain.Visa;
 
 public class Util {
@@ -42,6 +43,7 @@ public class Util {
 					cfg.configure(CONFIG_FILE_LOCATION);
 					sessionFactory = cfg.addAnnotatedClass(Client.class).addAnnotatedClass(Visa.class).
 							addAnnotatedClass(Hotel.class).addAnnotatedClass(City.class).
+							addAnnotatedClass(Room.class).
 							buildSessionFactory();
 				} catch (Exception e) {
 					System.err.println("Error Creating SessionFactory");
