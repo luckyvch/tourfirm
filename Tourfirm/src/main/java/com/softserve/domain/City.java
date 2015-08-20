@@ -31,6 +31,10 @@ public class City {
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "city")
 	private List<Hotel> hotelList;
+	
+	public City(){
+		
+	}
 
 	/**
 	 * @param The id of the city.

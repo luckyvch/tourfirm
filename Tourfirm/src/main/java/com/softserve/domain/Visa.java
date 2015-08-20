@@ -39,9 +39,7 @@ public class Visa {
 	/**
 	 * Instantiates a new visas.
 	 */
-	public Visa() {
-		
-	}
+	public Visa() {}
 	
 	public Visa(String visaNumber, Client client, Date dateOfIssue) {
 		super();

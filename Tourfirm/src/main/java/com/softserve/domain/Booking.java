@@ -39,6 +39,10 @@ public class Booking {
 	@Column
 	@Temporal(value=TemporalType.DATE)
 	private Date dateTo;
+	
+	public Booking(){
+		
+	}
 
 	public Booking(int idBooking, Client client, Room room, Date dateFrom,
 			Date dateTo) {

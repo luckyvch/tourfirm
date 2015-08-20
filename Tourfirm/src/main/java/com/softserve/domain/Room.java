@@ -30,6 +30,10 @@ public class Room {
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "room")
 	private Set<Booking> booking;
+	
+	public Room(){
+		
+	}
 
 	public Room(int idRoom, Hotel hotel, int roomNumber, int roomType,
 			int roomPrice) {
