@@ -19,10 +19,10 @@ public class MainTest {
 		Session session = Util.currentSession();
 //		session.beginTransaction();
 //		Client client = new Client();
-//		client.setfName("Василь");
-//		client.setsName("Чопик");
-//		client.setPasportNumber("ВК0555697");
-//		client.setAdress("м.Трускавець,вул.М.Стрийська,2/33");
+//		client.setfName("Р’Р°СЃРёР»СЊ");
+//		client.setsName("Р§РѕРїРёРє");
+//		client.setPasportNumber("050555697");
+//		client.setAdress("Р±Р°Р»Р°Р»Р°Р»Р°Р»Р°Р»Р°Р»Р°Р»Р°Р»2/33");
 //		client.setEmail("vch@mail.ru");
 //		client.setTel("0965551958");
 //		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
