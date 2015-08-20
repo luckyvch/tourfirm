@@ -12,19 +12,28 @@ public class Room {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int idRoom;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "idHotel")
 	private Hotel hotel;
-	
+
 	@Column
 	private int roomNumber;
-	
+
 	@Column
 	private int roomType;
-	
+
 	@Column
 	private int roomPrice;
+
+	public Room(int idRoom, Hotel hotel, int roomNumber, int roomType,
+			int roomPrice) {
+		this.idRoom = idRoom;
+		this.hotel = hotel;
+		this.roomNumber = roomNumber;
+		this.roomType = roomType;
+		this.roomPrice = roomPrice;
+	}
 
 	public int getIdRoom() {
 		return idRoom;
@@ -68,13 +77,9 @@ public class Room {
 
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder(10, 40).
-				   append(idRoom).
-			       append(hotel).
-			       append(roomNumber).
-			       append(roomType).
-			       append(roomPrice).
-			       toHashCode();
+		return new HashCodeBuilder(17, 37).append(getIdRoom())
+				.append(getHotel()).append(getRoomNumber())
+				.append(getRoomType()).append(getRoomPrice()).toHashCode();
 	}
 
 	@Override
@@ -88,14 +93,13 @@ public class Room {
 		if (obj.getClass() != getClass()) {
 			return false;
 		}
-		Room room  = (Room) obj;
-		return new EqualsBuilder().appendSuper(super.equals(obj)).
-				   append(idRoom, room.idRoom).
-				   append(hotel, room.hotel).
-			       append(roomNumber, room.roomNumber).
-			       append(roomType, room.roomType).
-			       append(roomPrice, room.roomPrice).
-				    isEquals();
+		Room room = (Room) obj;
+		return new EqualsBuilder().appendSuper(super.equals(obj))
+				.append(getIdRoom(), room.getIdRoom())
+				.append(getHotel(), room.getHotel())
+				.append(getRoomNumber(), room.getRoomNumber())
+				.append(getRoomType(), room.getRoomType())
+				.append(getRoomPrice(), room.getRoomPrice()).isEquals();
 	}
-	
+
 }
