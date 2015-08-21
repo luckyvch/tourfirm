@@ -46,7 +46,7 @@ public class Booking {
 
 	public Booking(int idBooking, Client client, Room room, Date dateFrom,
 			Date dateTo) {
-		this.idBooking = idBooking;
+		setIdBooking(idBooking);
 		this.client = client;
 		this.room = room;
 		this.dateFrom = dateFrom;
