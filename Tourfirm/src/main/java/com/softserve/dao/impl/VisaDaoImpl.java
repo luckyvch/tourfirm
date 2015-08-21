@@ -15,7 +15,9 @@ public class VisaDaoImpl extends BaseDaoImpl<Visa> implements VisaDao {
 
 	@Transactional
 	public Visa findVisaByUserId(int id) {
-		return null;
+		return (Visa) VisaDaoImpl.this.getEm()
+				.createQuery("from Visa where idClient=:id")
+				.setParameter("id", id).getSingleResult();
 	}
 
 }

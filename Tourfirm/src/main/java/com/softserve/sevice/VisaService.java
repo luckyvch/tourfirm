@@ -14,6 +14,6 @@ public interface VisaService {
 	
 	void delete (int id);
 	
-	void findVisaByUserId (int id);
+	Visa findVisaByUserId (int id);
 
 }
