@@ -1,6 +1,5 @@
 package com.softserve.dao.impl;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -8,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.softserve.dao.BookingDao;
 import com.softserve.domain.Booking;
-import com.softserve.domain.Room;
+
 
 @Repository
 public class BookingDaoImpl extends BaseDaoImpl<Booking> implements BookingDao {
