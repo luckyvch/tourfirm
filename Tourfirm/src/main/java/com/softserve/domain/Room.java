@@ -1,10 +1,6 @@
 package com.softserve.domain;
 
 import java.util.List;
-<<<<<<< HEAD
-=======
-import java.util.Set;
->>>>>>> konon
 
 import javax.persistence.*;
 
@@ -32,11 +28,7 @@ public class Room {
 	@Column
 	private int roomPrice;
 	
-<<<<<<< HEAD
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "room")
-=======
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "room")
->>>>>>> konon
 	private List<Booking> booking;
 	
 	public Room(){

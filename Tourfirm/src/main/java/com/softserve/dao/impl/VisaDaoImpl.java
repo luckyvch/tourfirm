@@ -1,7 +1,9 @@
 package com.softserve.dao.impl;
 
+import java.util.Date;
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.softserve.dao.VisaDao;
 import com.softserve.domain.Visa;
@@ -13,11 +15,19 @@ public class VisaDaoImpl extends BaseDaoImpl<Visa> implements VisaDao {
 		super(Visa.class);
 	}
 
-	@Transactional
+	
 	public Visa findVisaByUserId(int id) {
 		return (Visa) VisaDaoImpl.this.getEm()
 				.createQuery("from Visa where idClient=:id")
 				.setParameter("id", id).getSingleResult();
+	}
+
+	
+	public List<Visa> findVisasByDate(Date dateFrom, Date dateTo) {
+	    @SuppressWarnings("unchecked")
+		List<Visa> list = VisaDaoImpl.this.getEm().createQuery("from visa where dateOfIssue>=:dateFrom and dateOfIssue<=:dateTo").
+				setParameter("dateFrom", dateFrom).setParameter("dateTo", dateTo).getResultList();
+		return list;
 	}
 
 }

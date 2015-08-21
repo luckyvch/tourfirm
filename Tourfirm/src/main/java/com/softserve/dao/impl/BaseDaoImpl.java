@@ -44,7 +44,7 @@ public class BaseDaoImpl<E> implements BaseDao<E> {
 		return em.find(entityClass, id);
 	}
 
-	
+	@SuppressWarnings("unchecked")
 	public List<E> getAll() {
 		return em.createQuery("from " + entityClass.getSimpleName())
 				.getResultList();
