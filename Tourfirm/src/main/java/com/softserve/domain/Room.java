@@ -1,6 +1,6 @@
 package com.softserve.domain;
 
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -29,7 +29,7 @@ public class Room {
 	private int roomPrice;
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "room")
-	private Set<Booking> booking;
+	private List<Booking> booking;
 	
 	public Room(){
 		
