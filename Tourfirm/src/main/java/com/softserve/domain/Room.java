@@ -1,6 +1,10 @@
 package com.softserve.domain;
 
 import java.util.List;
+<<<<<<< HEAD
+=======
+import java.util.Set;
+>>>>>>> konon
 
 import javax.persistence.*;
 
@@ -23,21 +27,25 @@ public class Room {
 	private int roomNumber;
 
 	@Column
-	private int roomType;
+	private String roomType;
 
 	@Column
 	private int roomPrice;
 	
+<<<<<<< HEAD
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "room")
+=======
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "room")
+>>>>>>> konon
 	private List<Booking> booking;
 	
 	public Room(){
 		
 	}
 
-	public Room(int idRoom, Hotel hotel, int roomNumber, int roomType,
+	public Room(int idRoom, Hotel hotel, int roomNumber, String roomType,
 			int roomPrice) {
-		this.idRoom = idRoom;
+		setIdRoom(idRoom);
 		this.hotel = hotel;
 		this.roomNumber = roomNumber;
 		this.roomType = roomType;
@@ -68,11 +76,11 @@ public class Room {
 		this.roomNumber = roomNumber;
 	}
 
-	public int getRoomType() {
+	public String getRoomType() {
 		return roomType;
 	}
 
-	public void setRoomType(int roomType) {
+	public void setRoomType(String roomType) {
 		this.roomType = roomType;
 	}
 
