@@ -39,7 +39,10 @@ public class Main {
 //		for (Visa visa2 : setVisas) {
 //			System.out.println(visa2);
 //		}
-		
+		List<Visa> list = visaService.findVisaByDates("2014-04-03", "2015-03-28");
+		for (Visa visa : list) {
+			System.out.println(visa.getVisaNumber() + " " + visa.getDateOfIssue());
+		}
 		
 	}
 

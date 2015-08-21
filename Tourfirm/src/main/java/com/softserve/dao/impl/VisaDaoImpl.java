@@ -1,6 +1,5 @@
 package com.softserve.dao.impl;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
@@ -22,11 +21,12 @@ public class VisaDaoImpl extends BaseDaoImpl<Visa> implements VisaDao {
 				.setParameter("id", id).getSingleResult();
 	}
 
-	
-	public List<Visa> findVisasByDate(Date dateFrom, Date dateTo) {
-	    @SuppressWarnings("unchecked")
-		List<Visa> list = VisaDaoImpl.this.getEm().createQuery("from visa where dateOfIssue>=:dateFrom and dateOfIssue<=:dateTo").
-				setParameter("dateFrom", dateFrom).setParameter("dateTo", dateTo).getResultList();
+	@SuppressWarnings("unchecked")
+	public List<Visa> findVisasByDate(String dateFrom, String dateTo) {
+	    StringBuilder builder = new StringBuilder("from Visa ");
+	    builder.append(" where dateOfIssue>='" + dateFrom + "'");
+	    builder.append(" and dateOfIssue<='" + dateTo + "'");
+		List<Visa> list = VisaDaoImpl.this.getEm().createQuery(builder.toString()).getResultList();
 		return list;
 	}
 
