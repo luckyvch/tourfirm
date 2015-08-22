@@ -37,12 +37,21 @@ public class Room {
 
 	@Column
 	private int roomPrice;
+<<<<<<< HEAD
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "room")
 	private List<Booking> bookings;
 
 	public Room() {
 
+=======
+	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "room")
+	private List<Booking> booking;
+	
+	public Room(){
+		
+>>>>>>> 5b0a785e3d9381e0c98ac351d8024e452f33cf8a
 	}
 
 	public Room(int idRoom, Hotel hotel, int roomNumber, String roomType,
