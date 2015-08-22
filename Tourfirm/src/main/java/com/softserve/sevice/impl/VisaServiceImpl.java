@@ -13,9 +13,9 @@ import com.softserve.dao.VisaDao;
 import com.softserve.domain.Visa;
 import com.softserve.sevice.VisaService;
 
-@Service("visaServise")
-public class VisaServiceImpl implements VisaService{
-	
+@Service("visaService")
+public class VisaServiceImpl implements VisaService {
+
 	@Autowired
 	private VisaDao dao;
 
@@ -28,7 +28,7 @@ public class VisaServiceImpl implements VisaService{
 	public Visa find(int id) {
 		return dao.find(id);
 	}
-
+	
 	@Transactional
 	public List<Visa> getAllVisas() {
 		return dao.getAll();
@@ -36,7 +36,7 @@ public class VisaServiceImpl implements VisaService{
 
 	@Transactional
 	public void delete(int id) {
-		dao.delete(id);		
+		dao.delete(id);
 	}
 
 	@Transactional
@@ -48,4 +48,5 @@ public class VisaServiceImpl implements VisaService{
 	public List<Visa> findVisaByDates(String dateFrom, String dateTo) {
 		return dao.findVisasByDate(dateFrom, dateTo);
 	}
+
 }

@@ -8,10 +8,12 @@ public interface ClientService {
 	
 	void insertClient (Client client);
 	
-	Client findClient (int id);
+	Client find (int id);
+	
+	Client update (int id);
 	
 	List<Client> getAllClients();
 	
-	void deleteClient (int id);
+	void delete (int id);
 
 }

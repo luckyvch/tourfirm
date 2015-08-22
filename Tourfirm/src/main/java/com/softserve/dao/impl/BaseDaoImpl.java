@@ -1,4 +1,4 @@
-	package com.softserve.dao.impl;
+package com.softserve.dao.impl;
 
 import java.util.List;
 
@@ -34,14 +34,16 @@ public class BaseDaoImpl<E> implements BaseDao<E> {
 		this.em = em;
 	}
 
-	
 	public void insert(E e) {
 		em.persist(e);
 	}
 
-	
 	public <T> E find(T id) {
 		return em.find(entityClass, id);
+	}
+
+	public <T> E update(T id) {
+		return (E) em.merge(id);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -50,7 +52,6 @@ public class BaseDaoImpl<E> implements BaseDao<E> {
 				.getResultList();
 	}
 
-	
 	public <T> void delete(T id) {
 		em.remove(em.find(entityClass, id));
 	}

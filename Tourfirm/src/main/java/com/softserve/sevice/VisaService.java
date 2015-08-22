@@ -12,6 +12,8 @@ public interface VisaService {
 	
 	Visa find (int id);
 	
+	Visa update (int id);
+	
 	List<Visa> getAllVisas();
 	
 	void delete (int id);
