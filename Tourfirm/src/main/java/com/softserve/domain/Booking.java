@@ -33,15 +33,15 @@ public class Booking {
 	private Room room;
 
 	@Column
-	@Temporal(value=TemporalType.DATE)
+	@Temporal(value = TemporalType.DATE)
 	private Date dateFrom;
 
 	@Column
-	@Temporal(value=TemporalType.DATE)
+	@Temporal(value = TemporalType.DATE)
 	private Date dateTo;
-	
-	public Booking(){
-		
+
+	public Booking() {
+
 	}
 
 	public Booking(int idBooking, Client client, Room room, Date dateFrom,

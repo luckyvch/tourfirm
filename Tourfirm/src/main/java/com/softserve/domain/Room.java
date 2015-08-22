@@ -1,12 +1,18 @@
 package com.softserve.domain;
 
 import java.util.List;
-<<<<<<< HEAD
-=======
-import java.util.Set;
->>>>>>> konon
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.Table;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
@@ -31,16 +37,12 @@ public class Room {
 
 	@Column
 	private int roomPrice;
-	
-<<<<<<< HEAD
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "room")
-=======
+
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "room")
->>>>>>> konon
-	private List<Booking> booking;
-	
-	public Room(){
-		
+	private List<Booking> bookings;
+
+	public Room() {
+
 	}
 
 	public Room(int idRoom, Hotel hotel, int roomNumber, String roomType,
@@ -117,6 +119,13 @@ public class Room {
 				.append(getRoomNumber(), room.getRoomNumber())
 				.append(getRoomType(), room.getRoomType())
 				.append(getRoomPrice(), room.getRoomPrice()).isEquals();
+	}
+
+	@Override
+	public String toString() {
+		return "Room [idRoom=" + idRoom + ", hotel=" + hotel + ", roomNumber="
+				+ roomNumber + ", roomType=" + roomType + ", roomPrice="
+				+ roomPrice + ", bookings=" + bookings + "]";
 	}
 
 }
