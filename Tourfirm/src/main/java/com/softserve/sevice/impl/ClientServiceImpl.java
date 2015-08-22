@@ -22,7 +22,7 @@ public class ClientServiceImpl implements ClientService {
 	}
 
 	@Transactional
-	public Client findClient(int id) {
+	public Client find(int id) {
 		return dao.find(id);
 	}
 
@@ -32,9 +32,16 @@ public class ClientServiceImpl implements ClientService {
 	}
 
 	@Transactional
-	public void deleteClient(int id) {
+	public void delete(int id) {
 		dao.delete(id);
 	}
+
+	@Transactional
+	public Client update(int id) {
+		return dao.update(id);
+	}
+
+
 
 
 }

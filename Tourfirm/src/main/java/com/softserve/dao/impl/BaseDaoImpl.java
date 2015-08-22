@@ -42,6 +42,7 @@ public class BaseDaoImpl<E> implements BaseDao<E> {
 		return em.find(entityClass, id);
 	}
 
+	@SuppressWarnings("unchecked")
 	public <T> E update(T id) {
 		return (E) em.merge(id);
 	}

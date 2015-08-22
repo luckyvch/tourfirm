@@ -31,7 +31,7 @@ public class RoomServiceImpl implements RoomService {
 
 	@Transactional
 	public Room update(int id) {
-		return dao.merge(id);
+		return dao.update(id);
 	}
 
 	@Transactional

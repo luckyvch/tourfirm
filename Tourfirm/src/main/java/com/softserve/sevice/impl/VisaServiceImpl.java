@@ -49,4 +49,9 @@ public class VisaServiceImpl implements VisaService {
 		return dao.findVisasByDate(dateFrom, dateTo);
 	}
 
+	@Transactional
+	public Visa update(int id) {
+		return dao.update(id);
+	}
+
 }
