@@ -45,9 +45,8 @@ public class Room {
 
 	}
 
-	public Room(int idRoom, Hotel hotel, int roomNumber, String roomType,
+	public Room(Hotel hotel, int roomNumber, String roomType,
 			int roomPrice) {
-		setIdRoom(idRoom);
 		this.hotel = hotel;
 		this.roomNumber = roomNumber;
 		this.roomType = roomType;
