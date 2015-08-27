@@ -1,0 +1,117 @@
+@CHARSET "UTF-8";
+
+@font-face {
+    font-family: 'armalite_rifleregular';
+    src: url('fonts/armalite_rifle-webfont.eot');
+    src: url('fonts/armalite_rifle-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/armalite_rifle-webfont.woff') format('woff'),
+         url('fonts/armalite_rifle-webfont.ttf') format('truetype'),
+         url('fonts/armalite_rifle-webfont.svg#armalite_rifleregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+#form{
+	margin-left: 80%;
+	padding-top: 13px;
+}
+
+body {
+	background: #ffffff;
+	margin: 0px;
+}
+
+#ramka{
+	width: 100%;
+	height: 860px;
+	margin: 0 auto;
+}
+
+#header {
+	background: #380251;
+	height: 60px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+#body{
+	width: 100%;
+	height: 800px;
+}
+
+#myCarusel{
+	margin-bottom: 600px;
+	font-family: 'armalite_rifleregular'; 
+	font-size: 55px;
+	color: #655879;
+}
+
+#menu {
+	width: 360px;
+	height: 40px;
+	padding-left: 0px;
+	margin-top: 10px;
+	margin-left: 50px;
+	background: #380251;
+	float: left;
+}
+
+ul.menuClass {
+	padding: 0;
+	margin: 0 auto;
+	width: 366px;
+	height: 40px;
+}
+
+ul.menuClass>li {
+	list-style: none;
+	float: left;
+}
+
+ul.menuClass>li>a {
+	display: block;
+	padding: 10px 0;
+	width: 120px;
+	text-align: center;
+	color: #fff;
+	text-decoration: none;
+	background: #380251;
+	font-family: arial;
+	border-right: 2px solid #fff;
+}
+
+ul.menuClass>li>a:hover {
+	background: #A020F0;
+	transition: 1s;
+}
+
+li:nth-child(1){
+	border-left: 2px solid #fff;
+}
+
+#loginForm{
+	margin: 0 auto;
+	height: 300px;
+	width: 300px;
+	padding-top: 200px;
+}
+
+#loginBlock{
+	margin-left: 25%;
+	margin-top: 13px;
+	float: left;
+}
+
+#tables{
+	width: 250px;
+	height: 247px;
+	float: left;
+}
+
+#table{
+	width: 500px;
+	margin-left: 12%;
+	float: left;
+}
+

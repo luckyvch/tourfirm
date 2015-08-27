@@ -1,36 +1,42 @@
-use tourfirm;
+create database tourfirm;
 
-INSERT INTO clientInfo (fName, sName, pasportNumber, adress, tel, email) VALUES 
+use tourfirm;
+INSERT INTO client (fName, sName, pasportNumber, adress, tel, email) VALUES 
 ('Тетяна', 'Боженко', 'ВВ027523', 'м.Трускавець,вул.О.Магдалини,35/9', '0678563491', 'tanja74@gmail.com'),
 ('Сергій', 'Бойко', 'ВВ026924', 'м.Київ,вул.О.Магдалини,58/10','0978465312', 'sergio@gmail.com'),
 ('Олег', 'Василишин', 'ВС036223', 'м.Київ,вул.Т.Шевченка,96/10','0978465312','oleg@ukr.net'),
-('Остап', 'Ключик', 'ВК036223', 'м.Київ,вул.В.Великого,26/2','0500342996', 'ostap@rambler.ru'),
-('Марта', 'Стадник', 'ВС036223', 'м.Стрий,вул.Т.Шевченка,36/12','0964861958', 'marta89@gmail.com'),
-('Анна', 'Дяків', 'ВК038274', 'м.Чернівці,вул.Т.Тимофійченка,20/12','0938976451', 'ann@gmail.com'),
+('Остап', 'Ключик', 'ВК037223', 'м.Київ,вул.В.Великого,26/2','0500342996', 'ostap@rambler.ru'),
+('Марта', 'Стадник', 'ВС786223', 'м.Стрий,вул.Т.Шевченка,36/12','0964861958', 'marta89@gmail.com'),
+('Анна', 'Дяків', 'ВК038294', 'м.Чернівці,вул.Т.Тимофійченка,20/12','0938976451', 'ann@gmail.com'),
 ('Ігор', 'Чопик', 'ВО038274', 'м.Ухтирка,вул.Т.Нижанківського,21/1','0505559877', 'igor@ukr.net'),
 ('Надія', 'Мартинишин', 'ВС037264', 'м.Ухтирка,вул.Т.Нижанківського,21/1','0633571594', 'nadija@mail.ru'),
-('Любов', 'Онуфрієнко', 'ВС037325', 'м.Івано-Франківськ,вул.Т.Лі,2/13','0978523571', 'luba@gmail.com'),
-('Назар', 'Николишин', 'ВМ037325', 'м.Трускавець,вул.М.Стрийська,2/33','0504861956', 'nazar@rambler.ru'),
-('Тарас', 'Мозіль', 'ВМ039375', 'м.Луцьк,вул.М.Максименка,2/33','0974561257', 'taras@mail.ru'),
-('Ігор', 'Фута', 'ВК026523', 'м.Дрогобич,вул.О.Підстригача,32/3','0504861958', 'igor@mail.ru'),
-('Василь', 'Чопик', 'ВК026521', 'м.Львів,вул.О.Степанівни,28/1', '0634861958', 'vasyl@mail.ru'),
-('Марта', 'Чабан', 'ВК026521', 'м.Стрий,вул.О.Шевченка,32/3','0634514373', 'marta@mail.ru'),
+('Любов', 'Онуфрієнко', 'ВС037525', 'м.Івано-Франківськ,вул.Т.Лі,2/13','0978523571', 'luba@gmail.com'),
+('Назар', 'Николишин', 'ВМ035325', 'м.Трускавець,вул.М.Стрийська,2/33','0504861956', 'nazar@rambler.ru'),
+('Тарас', 'Мозіль', 'ВМ035375', 'м.Луцьк,вул.М.Максименка,2/33','0974561257', 'taras@mail.ru'),
+('Ігор', 'Фута', 'ВК026525', 'м.Дрогобич,вул.О.Підстригача,32/3','0504861958', 'igor@mail.ru'),
+('Василь', 'Чопик', 'ВК025521', 'м.Львів,вул.О.Степанівни,28/1', '0634861958', 'vasyl@mail.ru'),
+('Марта', 'Чабан', 'ВК526515', 'м.Стрий,вул.О.Шевченка,32/3','0634514373', 'marta@mail.ru'),
 ('Володимир', 'Осередчук', 'ВМ033333', 'м.Львів,вул.М.Коноплянки,25/33','0965551958', 'crazy@gmail.com'),
-('Василь', 'Голомша', 'ВМ033333', 'м.Трускавець,вул.М.Максименка,2/33','0934511958', 'vch@mail.ru');
+('Василь', 'Голомша', 'ВМ033773', 'м.Трускавець,вул.М.Максименка,2/33','0934511958', 'vch@mail.ru');
 
-INSERT INTO visas (idClient, dateOfIssue) VALUES 
-(1, '2015-03-03'),
-(2, '2015-08-01'),
-(3, '2014-12-17'),
-(4, '2015-02-23'),
-(5, '2015-06-14'),
-(6, '2014-06-28'),
-(7, '2014-07-28'),
-(8, '2015-07-05'),
-(9, '2015-03-28'),
-(10, '2014-04-03');
+INSERT INTO visa (visaNumber, dateOfIssue, idClient) VALUES 
+('23659987854', '2015-03-03', 1),
+('35799457854', '2015-08-01', 2),
+('75700007854', '2014-12-17', 3),
+('87788887854', '2015-02-23', 4),
+('95788887854', '2015-06-14', 5),
+('95755557854', '2014-06-28', 6),
+('15763217854', '2014-07-28', 7),
+('25763217854', '2015-07-05', 8),
+('15767617854', '2015-03-28', 9),
+('23763217899', '2014-04-03', 10);
 
-INSERT INTO cities (cityName, country) VALUES 
+use tourfirm;
+INSERT INTO admin (login, pass) VALUES 
+('admin', 'pass');
+
+use tourfirm;
+INSERT INTO city (cityName, country) VALUES 
 ('Lviv', 'Ukraine'),
 ('Kyiv', 'Ukraine'),
 ('Truskavets', 'Ukraine'),
@@ -42,20 +48,21 @@ INSERT INTO cities (cityName, country) VALUES
 ('Tokyo', 'Japan'),
 ('New York', 'USA');
 
-INSERT INTO tourfirm.hotels (hotelName, idCity, category, location, email, tel) VALUES 
-('Plaza', 10, 5, 'Yorker st. 17', 'www.theplazany.com', '866868666'),
-('Hilton', 4, 5, 'Central Bulvar', 'hiltonhotel.com', '+17 000 777'),
-('GrandResort', 5, 5, 'Rivera st.', 'grandresort.com', '1300 1300 1300'),
-('TimoResort', 6, 4, 'Bulbada P. 1', 'timoresort.org', '2552-2552'), 
-('GrandResort', 8, 5, 'VivaSpania Square', 'grandresortbr.com', '8900 8900 8900'),
-('Cesar', 7, 4, 'Pamukale st.56', 'cesarhotels.com', '123 123 123'),
-('Citadel Inn', 1, 5, 'Kopernika 86', 'citadelinnlviv.com', '+80322 292 77 54'),
-('Kyiv', 2, 4, 'Shevchenka 86', 'kyivinkyiv.ua', '+80322 261 61 61'), 
-('SushiSpa', 9, 4, 'Kimono Square', 'sushihome.com', '777-777-777'),
-('Katana Hotels', 9, 4, 'Katana st. 11', 'katanahotels.com', '777-666-555'),
-('Rixus', 3, 5, 'Franka st. 17', 'rixus.com', '+80322-11-11-222'),
-('TruskavetsResort', 3, 3, 'Skoropadskogo st. 22', 'truskavetsresort.ua', '+80322 223 23 23'),
-('Plaza', 10, 5, 'Central Park', 'www.theplazany.com', '866878787');
+use tourfirm;
+INSERT INTO hotel (category, emailHotel, hotelName, location, telHotel, idCity) VALUES 
+( 5, 'www.theplazany.com', 'Plaza', 'Yorker st. 17', '866868666', 10),
+( 5, 'hiltonhotel.com', 'Hilton', 'Central Bulvar', '+17 000 777', 4),
+( 5, 'grandresort.com', 'GrandResort', 'Rivera st.', '1300 1300 1300', 5),
+( 4, 'timoresort.org', 'TimoResort', 'Bulbada P. 1',  '2552-2552', 6), 
+( 5, 'grandresortbr.com', 'GrandResort', 'VivaSpania Square', '8900 8900 8900', 8),
+( 4, 'cesarhotels.com', 'Cesar', 'Pamukale st.56', '123 123 123', 7),
+( 5, 'citadelinnlviv.com', 'Citadel Inn', 'Kopernika 86', '+80322 292 77 54', 1),
+( 4, 'kyivinkyiv.ua', 'Kyiv', 'Shevchenka 86', '+80322 261 61 61', 2), 
+( 4, 'sushihome.com', 'SushiSpa', 'Kimono Square', '777-777-777', 9),
+( 4, 'katanahotels.com', 'Katana Hotels', 'Katana st. 11', '777-666-555', 9),
+( 5, 'rixus.com', 'Rixus', 'Franka st. 17', '+80322-11-11-222', 3),
+( 3, 'truskavetsresort.ua', 'TruskavetsResort', 'Skoropadskogo st. 22', '+80322 223 23 23', 3),
+( 5, 'www.theplazany.com', 'Plaza', 'Central Park', '866878787', 10); 
 
 INSERT INTO rooms (idHotel, roomNumber, beds, price) VALUES
 (1, 1, 2, 200),
