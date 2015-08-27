@@ -6,7 +6,7 @@ import com.softserve.domain.City;
 
 public interface CityService {
 
-	void insertVisa(City city);
+	void insertCity(City city);
 
 	City find(int id);
 

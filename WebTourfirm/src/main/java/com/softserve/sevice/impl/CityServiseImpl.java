@@ -17,7 +17,7 @@ public class CityServiseImpl implements CityService{
 	private CityDao dao;
 	
 	@Transactional
-	public void insertVisa(City city) {
+	public void insertCity(City city) {
 		dao.insert(city);
 	}
 
