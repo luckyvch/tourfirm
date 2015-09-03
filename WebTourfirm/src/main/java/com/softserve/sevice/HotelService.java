@@ -14,9 +14,9 @@ public interface HotelService {
 
 	List<Hotel> getAllHotels();
 
-<<<<<<< HEAD
+
 	void delete(Hotel hotel);
-=======
+
 	void delete(int id);
 	
 	List<Hotel> findByCityId(int id);
@@ -24,6 +24,6 @@ public interface HotelService {
 	List<Hotel> findByHotelName(String hotelName);
 	
 	List<Hotel> findByCategory(int category);
->>>>>>> 3cf61f65f240d988add1563d5d2a29a33bff3e85
+
 
 }

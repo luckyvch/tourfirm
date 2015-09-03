@@ -56,4 +56,8 @@ public class HotelServiceImpl implements HotelService{
 		return dao.findByCategory(category);
 	}
 
+	public void delete(int id) {
+		
+	}
+
 }
