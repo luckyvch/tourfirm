@@ -32,8 +32,8 @@ public class VisaServiceImpl implements VisaService {
 	}
 
 	@Transactional
-	public void delete(int id) {
-		dao.delete(id);
+	public void delete(Visa visa) {
+		dao.deleteEntity(visa);
 	}
 
 	@Transactional

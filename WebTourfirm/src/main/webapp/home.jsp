@@ -37,6 +37,7 @@
 		<p>Дані збережено!</p>
 	</div>
 
+<<<<<<< HEAD
 	<!-- Modal -->
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
@@ -81,6 +82,52 @@
 							<button type="submit" class="btn btn-primary" id="myButton">Зберегти</button>
 						</div>
 					</form>
+=======
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" id="myModalLabel">Введіть свої особисті дані</h4>
+						<p id="message"></p>
+					</div>
+					<div class="modal-body">
+						<form action="apply" method="post" autocomplete="on" id="aplicationForm">
+							<div class="form-group">
+								<label for="exampleInputPassword1">Ім'я</label>
+								<input type="text" class="form-control" name="fName">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputPassword1">Прізвище</label>
+								<input type="text" class="form-control" name="sName">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputPassword1">Серія та номер паспорта</label>
+								<input type="text" class="form-control"	name="pasportNumber">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputPassword1">Адреса проживання</label>
+								<input type="text" class="form-control" name="adress">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputPassword1">Телефон</label>
+								<input type="text" class="form-control" name="tel">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputPassword1">Email</label>
+								<input type="email" class="form-control" name="email">
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
+								<button type="submit" class="btn btn-primary" id="myButton">Зберегти</button>
+							</div>
+						</form>
+					</div>
+>>>>>>> 1ac4e249ecd87ce850777e9c659c5780b5ac1d31
 				</div>
 			</div>
 		</div>
@@ -134,6 +181,54 @@
 
 	</div>
 
+<<<<<<< HEAD
+=======
+		<div id="body">			
+			<div id="carousel-example-generic" class="carousel slide"
+				data-ride="carousel" id="body">
+				<!-- Indicators -->
+				<ol class="carousel-indicators">
+					<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+					<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+					<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+					<li data-target="#carousel-example-generic" data-slide-to="3"></li>
+					<li data-target="#carousel-example-generic" data-slide-to="4"></li>
+					<li data-target="#carousel-example-generic" data-slide-to="5"></li>
+					<li data-target="#carousel-example-generic" data-slide-to="6"></li>
+				</ol>
+
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner" role="listbox">
+					<div class="item active">
+						<img src="<c:url value="resources/jpg/foto_homepage/1.jpg"/>">
+						<div class="carousel-caption" id="myCarusel">WEB TOURFIRM</div>
+					</div>
+					<div class="item">
+						<img src="<c:url value="resources/jpg/foto_homepage/2.jpg"/>">
+						<div class="carousel-caption" id="myCarusel">WEB TOURFIRM</div>
+					</div>
+					<div class="item">
+						<img src="<c:url value="resources/jpg/foto_homepage/3.jpg"/>">
+						<div class="carousel-caption" id="myCarusel">WEB TOURFIRM</div>
+					</div>
+					<div class="item">
+						<img src="<c:url value="resources/jpg/foto_homepage/4.jpg"/>">
+						<div class="carousel-caption" id="myCarusel">WEB TOURFIRM</div>
+					</div>
+					<div class="item">
+						<img src="<c:url value="resources/jpg/foto_homepage/5.jpg"/>">
+						<div class="carousel-caption" id="myCarusel">WEB TOURFIRM</div>
+					</div>
+					<div class="item">
+						<img src="<c:url value="resources/jpg/foto_homepage/6.jpg"/>">
+						<div class="carousel-caption" id="myCarusel">WEB TOURFIRM</div>
+					</div>
+					<div class="item">
+						<img src="<c:url value="resources/jpg/foto_homepage/7.jpg"/>">
+						<div class="carousel-caption" id="myCarusel">WEB TOURFIRM</div>
+					</div>
+				</div>
+>>>>>>> 1ac4e249ecd87ce850777e9c659c5780b5ac1d31
 
 	<form action="findhotel" class="form-inline" id="form">
 		<div class="form-group">

@@ -2,7 +2,8 @@ package com.softserve.controller;
 
 import java.util.List;
 
-import org.springframework.aop.aspectj.AspectJAdviceParameterNameDiscoverer.AmbiguousBindingException;
+import org.codehaus.jackson.map.util.JSONPObject;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,11 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.softserve.domain.Admin;
 import com.softserve.domain.City;
-import com.softserve.domain.Client;
 import com.softserve.domain.Hotel;
 import com.softserve.sevice.AdminService;
 import com.softserve.sevice.CityService;
@@ -87,8 +86,32 @@ public class AdminController {
 		model.addAttribute("city", city);
 	}
 	
-	@RequestMapping(value="*/updateCity", method = RequestMethod.POST, consumes="application/json")
-	public void updateCity(@RequestBody City city){
-		cityService.update(city); 
+	@RequestMapping(value="/updateCity", method = RequestMethod.POST, consumes="application/json")
+	public void updateCity(@RequestBody String jsonCity){
+		System.out.println(jsonCity);
+		JSONObject json = new JSONObject(jsonCity);
+		City city = new City();
+		int id = Integer.parseInt((String) json.getString("idCity"));
+		city.setIdCity(id);
+		city.setName((String) json.getString("cityName"));
+		city.setCountry((String) json.getString("country"));
+		cityService.update(city);
+	}
+	
+	@RequestMapping(value="/deleteCity/{idCity}")
+	private void deleteCity(@PathVariable ("idCity") String idCityString) {
+		int idCity = Integer.parseInt(idCityString);
+		City city = cityService.find(idCity);
+		cityService.delete(city);
+	}
+	
+	@RequestMapping(value="/addCity", method = RequestMethod.POST, consumes="application/json")
+	private void addCity(@RequestBody String jsonCity) {
+		System.out.println(jsonCity);
+		JSONObject json = new JSONObject(jsonCity);
+		City city = new City();
+		city.setName((String) json.getString("cityName"));
+		city.setCountry((String) json.getString("country"));
+		cityService.insertCity(city);
 	}
 }

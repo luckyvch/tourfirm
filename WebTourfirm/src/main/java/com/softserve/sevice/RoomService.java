@@ -14,7 +14,7 @@ public interface RoomService {
 
 	List<Room> getAllRooms();
 
-	void delete(int id);
+	void delete(Room room);
 
 	List<Room> findByHotelId(int id);
 

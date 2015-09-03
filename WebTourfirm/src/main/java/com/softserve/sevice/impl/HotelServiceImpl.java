@@ -37,8 +37,8 @@ public class HotelServiceImpl implements HotelService{
 	}
 
 	@Transactional
-	public void delete(int id) {
-		dao.delete(id);		
+	public void delete(Hotel hotel) {
+		dao.deleteEntity(hotel);		
 	}
 
 	@Transactional
@@ -54,6 +54,10 @@ public class HotelServiceImpl implements HotelService{
 	@Transactional
 	public List<Hotel> findByCategory(int category) {
 		return dao.findByCategory(category);
+	}
+
+	public void delete(int id) {
+		
 	}
 
 }

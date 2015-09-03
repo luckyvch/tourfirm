@@ -14,5 +14,5 @@ public interface CityService {
 
 	List<City> getAllCities();
 
-	void delete(int id);
+	void delete(City city);
 }

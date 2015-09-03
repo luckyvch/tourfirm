@@ -52,8 +52,8 @@ public class BaseDaoImpl<E> implements BaseDao<E> {
 				.getResultList();
 	}
 
-	public <T> void delete(T id) {
-		em.remove(em.find(entityClass, id));
+	public void deleteEntity(E e) {
+		em.remove(em.contains(e)? e : em.merge(e));
 	}
 
 }
