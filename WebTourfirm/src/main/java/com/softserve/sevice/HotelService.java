@@ -6,7 +6,7 @@ import com.softserve.domain.Hotel;
 
 public interface HotelService {
 
-	void insertVisa(Hotel hotel);
+	void insertHotel(Hotel hotel);
 
 	Hotel find(int id);
 
@@ -14,6 +14,16 @@ public interface HotelService {
 
 	List<Hotel> getAllHotels();
 
+<<<<<<< HEAD
 	void delete(Hotel hotel);
+=======
+	void delete(int id);
+	
+	List<Hotel> findByCityId(int id);
+
+	List<Hotel> findByHotelName(String hotelName);
+	
+	List<Hotel> findByCategory(int category);
+>>>>>>> 3cf61f65f240d988add1563d5d2a29a33bff3e85
 
 }

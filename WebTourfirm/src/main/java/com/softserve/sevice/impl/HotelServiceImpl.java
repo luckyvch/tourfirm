@@ -17,7 +17,7 @@ public class HotelServiceImpl implements HotelService{
 	private HotelDao dao;
 	
 	@Transactional
-	public void insertVisa(Hotel hotel) {
+	public void insertHotel(Hotel hotel) {
 		dao.insert(hotel);
 	}
 
@@ -39,6 +39,21 @@ public class HotelServiceImpl implements HotelService{
 	@Transactional
 	public void delete(Hotel hotel) {
 		dao.deleteEntity(hotel);		
+	}
+
+	@Transactional
+	public List<Hotel> findByCityId(int id) {
+		return dao.findByCityId(id);
+	}
+
+	@Transactional
+	public List<Hotel> findByHotelName(String hotelName) {
+		return dao.findByHotelName(hotelName);
+	}
+
+	@Transactional
+	public List<Hotel> findByCategory(int category) {
+		return dao.findByCategory(category);
 	}
 
 }
