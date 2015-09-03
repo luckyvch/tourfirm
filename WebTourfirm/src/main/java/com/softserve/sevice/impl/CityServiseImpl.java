@@ -17,7 +17,7 @@ public class CityServiseImpl implements CityService{
 	private CityDao dao;
 	
 	@Transactional
-	public void insertVisa(City city) {
+	public void insertCity(City city) {
 		dao.insert(city);
 	}
 
@@ -37,8 +37,8 @@ public class CityServiseImpl implements CityService{
 	}
 	
 	@Transactional
-	public void delete(int id) {
-		dao.delete(id);
+	public void delete(City city) {
+		dao.deleteEntity(city);
 	}
 
 }

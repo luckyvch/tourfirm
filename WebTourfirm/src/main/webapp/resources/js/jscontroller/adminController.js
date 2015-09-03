@@ -15,17 +15,18 @@ function getAllCities() {
 					console.log(result);
 					$("thead>tr")
 							.append(
-									"<th>id</th><th>Країна</th><th>Назва міста</th><th></th>");
+									"<th>id</th><th>Країна</th><th>Назва міста</th><th><button type=\"button\" style=\" color: green;\" data-toggle=\"modal\" data-target=\"#myModal2\"><span><i class=\"fa fa-plus fa-lg\"</i></span></button></th>");
 					$.each(result.city,	function() {
 										var tr1 = "<tr>";
 										var tr2 = ("<td>" + this.idCity + "</td>");
 										var tr3 = ("<td>" + this.country + "</td>");
 										var tr4 = ("<td>" + this.name + "</td>");
-										var tr5 = ("<td><button type=\"button\" onclick=\"getCity(" + this.idCity + ")\"><span><i class=\"fa fa-pencil fa-lg\"</i></span></button></td>");
-										var tr6 = "</tr>";
+										var tr5 = ("<td><button type=\"button\" style=\" color: blue;\" onclick=\"getCity(" + this.idCity + ")\"><span><i class=\"fa fa-pencil fa-lg\"</i></span></button></td>");
+										var tr6 = ("<td><button type=\"button\" style=\" color: red;\" onclick=\"deleteCity(" + this.idCity + ")\"><span><i class=\"fa fa-trash-o fa-lg\"</i></span></button></td>");
+										var tr7 = "</tr>";
 										$("tbody").append(
 												tr1 + tr2 + tr3 + tr4 + tr5
-														+ tr6);
+														+ tr6 + tr7);
 									});
 					$('.table').show();
 				}
@@ -119,7 +120,67 @@ function updateCity() {
 			contentType : 'application/json',
 			dataType : 'json',
 			success: function() {
-					console.log("Response: success!");
+				$('.modal').hide();
+				getAllCities();
+				console.log("Response: success!");
+			},
+			error : function() {
+				$(this).html("Error!");
+			}
+		});
+	});
+}
+
+function deleteCity(id){
+	
+	var idCity = id.toString();
+	var url = 'deleteCity/'+ idCity + '/';
+	
+	$.ajax({
+		url : url,
+		success: function() {
+			console.log("Delete: success!");
+			getAllCities();
+		},
+		error : function() {
+			$(this).html("Error!");
+		}
+	});
+	
+}
+
+function addCity(){
+	
+	$('#addForm').submit(function(e) {
+
+		var frm = $('#addForm');
+		e.preventDefault();
+
+		var data = {}
+		console.log(data);
+		var Form = this;
+
+		//Gather Data also remove undefined keys(buttons)
+		$.each(this, function(i, v) {
+			var input = $(v);
+			data[input.attr('name')] = input.val();
+			delete data["undefined"];
+		});
+		
+		console.log(data);
+		console.log(frm.attr('method'));
+		console.log(frm.attr('action'));
+		
+		$.ajax({
+			type : frm.attr('method'),
+			url : frm.attr('action'),
+			data : JSON.stringify(data),
+			contentType : 'application/json',
+			dataType : 'json',
+			success: function() {
+				$('.modal').hide();
+				getAllCities();
+				console.log("Response: success!");
 			},
 			error : function() {
 				$(this).html("Error!");
@@ -150,5 +211,5 @@ $(document).ready(function() {
 	$('#cities').click(getAllCities);
 	$('#hotels').click(getAllHotels);
 	$('#updateCity').click(updateCity);
-
+	$('#addCity').click(addCity);
 });

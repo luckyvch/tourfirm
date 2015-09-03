@@ -32,8 +32,8 @@ public class ClientServiceImpl implements ClientService {
 	}
 
 	@Transactional
-	public void delete(int id) {
-		dao.delete(id);
+	public void delete(Client client) {
+		dao.deleteEntity(client);
 	}
 
 	@Transactional
@@ -68,9 +68,8 @@ public class ClientServiceImpl implements ClientService {
 		return contains;
 	}
 
-	
-
-
-
-
+	public void delete(int id) {
+		// TODO Auto-generated method stub
+		
+	}
 }

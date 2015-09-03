@@ -40,8 +40,8 @@ public class RoomServiceImpl implements RoomService {
 	}
 
 	@Transactional
-	public void delete(int id) {
-		dao.delete(id);
+	public void delete(Room room) {
+		dao.deleteEntity(room);
 
 	}
 

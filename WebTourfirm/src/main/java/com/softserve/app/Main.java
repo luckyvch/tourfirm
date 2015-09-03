@@ -26,10 +26,10 @@ public class Main {
 		System.out.println(clientService.containsClient("ВВ02752"));
 		CityService cityService = (CityService) context.getBean("cityService");
 		
-		City city = cityService.find(11);
+		City city = new City();
 		city.setName("Вашингтон");
-		city.setCountry("США");
-		cityService.update(city);
+		city.setCountry("Україна");
+		cityService.insertCity(city);
 //		List<City> list = cityService.getAllCities();
 //		for (City city : list) {
 //			System.out.println(city);

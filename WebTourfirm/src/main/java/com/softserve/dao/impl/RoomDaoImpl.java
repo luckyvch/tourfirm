@@ -32,7 +32,6 @@ public class RoomDaoImpl extends BaseDaoImpl<Room> implements RoomDao {
 	}
 
 	@Transactional
-	@SuppressWarnings("unchecked")
 	public List<Room> findByRoomPrice(int priceFrom, int priceTo) {
 		return (List<Room>) RoomDaoImpl.this.getEm()
 				.createQuery("from Room where roomPrice between :priceFrom and :priceTo")

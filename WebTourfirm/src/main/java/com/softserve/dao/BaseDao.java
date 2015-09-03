@@ -12,6 +12,6 @@ public interface BaseDao<E> {
 	
 	List<E> getAll();
 	
-	<T> void delete (T id);	
+	void deleteEntity (E e);	
 
 }

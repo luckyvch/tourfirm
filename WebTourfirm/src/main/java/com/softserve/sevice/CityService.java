@@ -6,7 +6,7 @@ import com.softserve.domain.City;
 
 public interface CityService {
 
-	void insertVisa(City city);
+	void insertCity(City city);
 
 	City find(int id);
 
@@ -14,5 +14,5 @@ public interface CityService {
 
 	List<City> getAllCities();
 
-	void delete(int id);
+	void delete(City city);
 }

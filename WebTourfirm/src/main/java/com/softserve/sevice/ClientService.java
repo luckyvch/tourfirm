@@ -14,7 +14,7 @@ public interface ClientService {
 	
 	List<Client> getAllClients();
 	
-	void delete (int id);
+	void delete (Client client);
 	
 	boolean contains(Client client);
 	

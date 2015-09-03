@@ -39,45 +39,40 @@
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
-						<h4 class="modal-title" id="myModalLabel">Введіть свої
-							особисті дані</h4>
-							<p id="message"></p>
+						<h4 class="modal-title" id="myModalLabel">Введіть свої особисті дані</h4>
+						<p id="message"></p>
 					</div>
 					<div class="modal-body">
-						<form action="apply" method="post" autocomplete="on"
-							id="aplicationForm">
+						<form action="apply" method="post" autocomplete="on" id="aplicationForm">
 							<div class="form-group">
-								<label for="exampleInputPassword1">Ім'я</label> <input
-									type="text" class="form-control" name="fName">
+								<label for="exampleInputPassword1">Ім'я</label>
+								<input type="text" class="form-control" name="fName">
 							</div>
 							<div class="form-group">
-								<label for="exampleInputPassword1">Прізвище</label> <input
-									type="text" class="form-control" name="sName">
+								<label for="exampleInputPassword1">Прізвище</label>
+								<input type="text" class="form-control" name="sName">
 							</div>
 							<div class="form-group">
-								<label for="exampleInputPassword1">Серія та номер
-									паспорта</label> <input type="text" class="form-control"
-									name="pasportNumber">
+								<label for="exampleInputPassword1">Серія та номер паспорта</label>
+								<input type="text" class="form-control"	name="pasportNumber">
 							</div>
 							<div class="form-group">
-								<label for="exampleInputPassword1">Адреса проживання</label> <input
-									type="text" class="form-control" name="adress">
+								<label for="exampleInputPassword1">Адреса проживання</label>
+								<input type="text" class="form-control" name="adress">
 							</div>
 							<div class="form-group">
-								<label for="exampleInputPassword1">Телефон</label> <input
-									type="text" class="form-control" name="tel">
+								<label for="exampleInputPassword1">Телефон</label>
+								<input type="text" class="form-control" name="tel">
 							</div>
 							<div class="form-group">
-								<label for="exampleInputPassword1">Email</label> <input
-									type="email" class="form-control" name="email">
+								<label for="exampleInputPassword1">Email</label>
+								<input type="email" class="form-control" name="email">
 							</div>
 							<div class="modal-footer">
-								<button type="button" class="btn btn-default"
-									data-dismiss="modal">Закрити</button>
+								<button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
 								<button type="submit" class="btn btn-primary" id="myButton">Зберегти</button>
 							</div>
 						</form>
@@ -102,8 +97,7 @@
 				data-ride="carousel" id="body">
 				<!-- Indicators -->
 				<ol class="carousel-indicators">
-					<li data-target="#carousel-example-generic" data-slide-to="0"
-						class="active"></li>
+					<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
 					<li data-target="#carousel-example-generic" data-slide-to="1"></li>
 					<li data-target="#carousel-example-generic" data-slide-to="2"></li>
 					<li data-target="#carousel-example-generic" data-slide-to="3"></li>

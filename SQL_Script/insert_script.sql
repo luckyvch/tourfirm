@@ -49,6 +49,10 @@ INSERT INTO city (cityName, country) VALUES
 ('New York', 'USA');
 
 use tourfirm;
+INSERT INTO city (cityName, country) VALUES 
+('Біберка', 'USA');
+
+use tourfirm;
 INSERT INTO hotel (category, emailHotel, hotelName, location, telHotel, idCity) VALUES 
 ( 5, 'www.theplazany.com', 'Plaza', 'Yorker st. 17', '866868666', 10),
 ( 5, 'hiltonhotel.com', 'Hilton', 'Central Bulvar', '+17 000 777', 4),
