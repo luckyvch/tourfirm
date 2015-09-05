@@ -1,3 +1,10 @@
+CREATE DATABASE measurement_devices DEFAULT CHARACTER SET utf8_general_ci;
+
+CREATE DATABASE measurement_devices
+DEFAULT CHARACTER SET utf8
+DEFAULT COLLATE utf8_unicode_ci;
+
+
 create database tourfirm;
 
 use tourfirm;
